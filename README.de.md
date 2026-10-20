@@ -65,7 +65,7 @@ Beim allerersten Start legen die Skripte eine eigene Python-Umgebung an. Das dau
 | `druck/ANLEITUNG_W2c.md` | Druck, Zusammenbau und Test der Variante W2c |
 | `ansicht/greifer_3d.html` | 3D-Ansicht: im Browser öffnen (braucht Internet für die 3D-Bibliothek). Vorführung, Sensoranzeige je Lamelle, Greiferweite, Spalt, Fin-Ray oder W2c, Traube oder SMD-Teil |
 | **zeichnungen/** | |
-| `zeichnungen/Massblatt_V1.8.1.pdf` | Maßblatt Basis V1.8.1: Schnitte, Lochbild, geänderte Maße (auch als PNG) |
+| `zeichnungen/Massblatt_V1.8.1.pdf` | Maßblatt Basis V1.8.1: Schnitte, Lochbild, geänderte Maße (auch als PNG). **Nur V1.8.1 ist gültig:** Bei älteren Basen blieben Lamellen nach festem Griff hängen |
 | `zeichnungen/Massblatt_Lamelle_V1.6N.pdf` | Maßblatt Fin-Ray-Lamelle V1.6-N: Profil, Federn, Magnettasche (auch als PNG) |
 | `zeichnungen/Massblatt_W2c_Fingernagel.pdf` | Maßblatt W2c: Nagel, Zapfen, Sitz auf den Lamellen (auch als PNG) |
 | **Anschluss und Löten** | |
