@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Kopiert pico/main.py und pico/kontakt.py auf den Pico (statt Thonny) und startet ihn neu.
-# Voraussetzung: MicroPython ist schon auf dem Pico (siehe README.md, Abschnitt 3.4).
+# Voraussetzung: MicroPython ist schon auf dem Pico (siehe README.de.md, Abschnitt 3.4).
 # Thonny, pc/start.sh und pc/monitor.sh vorher schliessen, sonst ist der Anschluss belegt.
 set -e
 source "$(dirname "$0")/_venv.sh"

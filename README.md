@@ -31,8 +31,9 @@ The full guide is in German: **[README.de.md](README.de.md)** (wiring, soldering
 1. Print 2 bases (PLA) and 2 lamella plates (TPU), glue a 4 × 2 mm N35 magnet into each lamella, all the same way round.
 2. Set the I2C address jumpers on the four MLX90393 boards (none / A0 / A1 / A0+A1 → 0x18 to 0x1B).
 3. Wire Pico → I2C hub → sensors (3V3 on pin 36, GND pin 38, SDA GP4 pin 6, SCL GP5 pin 7), then plug in USB.
-4. Flash MicroPython onto the Pico, then run `pc/pico_aufspielen.sh`.
-5. Run `pc/monitor.sh` for the live view. The scripts create their own Python venv on first start (Linux).
+4. On Linux you need `python3-venv` and `python3-tk` (`sudo apt install python3-venv python3-tk`) and your user in the `dialout` group.
+5. Flash MicroPython onto the Pico, then run `pc/pico_aufspielen.sh`.
+6. Run `pc/monitor.sh` for the live view. The scripts create their own Python venv on first start (Linux).
 
 ## Developer
 
@@ -41,7 +42,6 @@ Stefan Rohringer
 ## License
 
 Copyright © 2026 Stefan Rohringer
-
 
 - Hardware (STL files, drawings, build instructions): **CERN-OHL-S-2.0**, see [`LICENSE-HARDWARE`](LICENSE-HARDWARE).
 - Software (`pc/`, `pico/`): **GPL-3.0**, see [`LICENSE`](LICENSE).

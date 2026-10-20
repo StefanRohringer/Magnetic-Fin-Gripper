@@ -46,6 +46,8 @@ ansicht/greifer_3d.html        # 3D-Ansicht: im Browser öffnen (Doppelklick)
 
 Vorher: Sensoren anschließen, **dann** USB einstecken (Abschnitt 4). Es kann immer nur **ein** Programm gleichzeitig mit dem Pico reden. Thonny, `start.sh` und `monitor.sh` also nicht zusammen laufen lassen.
 
+Voraussetzung unter Linux: `sudo apt install python3-venv python3-tk` (für die virtuelle Umgebung und das Monitor-Fenster).
+
 Beim allerersten Start legen die Skripte eine eigene Python-Umgebung an. Das dauert einmalig etwa eine Minute (Abschnitt 3.1).
 
 ---
@@ -90,7 +92,7 @@ Die drei `.sh`-Skripte in `pc/` benutzen eine **eigene virtuelle Umgebung** `.ve
 - Kaputt? Ordner `.venv` löschen, beim nächsten Start entsteht er neu.
 - VS Code: Für Code-Hinweise unten rechts bzw. „Python: Select Interpreter“ → `.venv/bin/python` im Repo-Ordner wählen.
 
-Zugriff auf den Pico ohne Root klappt, weil der Benutzer in der Gruppe `dialout` ist.
+Für den Zugriff auf den Pico ohne Root muss der Benutzer in der Gruppe `dialout` sein (einmalig `sudo usermod -aG dialout $USER`, danach neu anmelden).
 
 ### 3.2 Greifer-Monitor: `pc/monitor.sh`
 
@@ -140,7 +142,7 @@ pc/pico_aufspielen.sh
 
 Kopiert `pico/main.py` als `main.py` auf den Pico und startet ihn neu. Ab dann läuft das Programm bei jedem Einstecken von selbst. Nach jeder Änderung an `pico/main.py` wieder ausführen. Vorher Monitor und `start.sh` schließen.
 
-**Pico ganz neu einrichten** (nur bei einem neuen Pico nötig, beim jetzigen erledigt):
+**Pico neu einrichten** (einmal bei einem neuen Pico):
 1. MicroPython laden: https://micropython.org/download/RPI_PICO/ , die neueste `.uf2`-Datei.
 2. BOOTSEL-Taste am Pico halten, USB einstecken, loslassen. Ein Laufwerk `RPI-RP2` erscheint.
 3. Die `.uf2`-Datei auf das Laufwerk ziehen. Der Pico startet neu, das Laufwerk verschwindet.
@@ -357,17 +359,17 @@ Immer von derselben Seite der Platine messen: Von vorne (Bauteilseite) gemessen 
 ### 5.4 Den echten Nordpol finden (falls gewünscht)
 
 - **Kompass:** Die Nordspitze der Nadel (meist rot) wird vom **Südpol** des Magneten angezogen. Die Seite, die die rote Spitze anzieht, ist also Süd.
-- Das Handy-Kompass geht auch, ist aber ungenauer; Magnet nicht direkt aufs Handy legen.
+- Der Handy-Kompass geht auch, ist aber ungenauer; Magnet nicht direkt aufs Handy legen.
 
 ### 5.5 Was man beim Handtest sieht
 
-Ergebnis vom 16.10. mit L1 und einem Magneten von Hand:
+Beispiel mit L1 und einem Magneten von Hand:
 - ohne Magnet: 0 bis 6 µT (Rauschen)
 - Magnet langsam heran: 30, 70, dann über 200 µT → „Kontakt: L1“
 - näher: 300 bis 1 500 µT
 - Magnet weg: zurück auf etwa 10 µT
 
-Das passt: Der Sensor reagiert deutlich, schon bevor der Magnet nah ist. Die Schwelle von 200 µT wird sicher überschritten, und es kommt keine Sättigung. Im Finger wird die Änderung beim Drücken etwa 5 000 µT (5 mT) sein, also weit über der Schwelle.
+Das passt: Der Sensor reagiert deutlich, schon bevor der Magnet nah ist. Die Schwelle von 200 µT wird sicher überschritten, und es kommt keine Sättigung. Im fertigen Finger ändert sich das Feld beim festen Drücken um 1,6 bis 2,2 mT (gemessen), also weit über der Schwelle.
 
 ---
 
@@ -375,7 +377,7 @@ Das passt: Der Sensor reagiert deutlich, schon bevor der Magnet nah ist. Die Sch
 
 Am besten mit `pc/monitor.sh` und Aufnahme-Knopf.
 
-1. **Ein Sensor, ein Magnet, ohne Finger:** L1 anschließen, Magnet mit der Hand langsam an den Chip heranführen. Der Betrag muss deutlich steigen, über 200 µT erscheint „Kontakt“. ✅ **Bestanden am 16.10.** (Rauschen etwa 1 µT, Magnet bis 1,5 mT)
+1. **Ein Sensor, ein Magnet, ohne Finger:** L1 anschließen, Magnet mit der Hand langsam an den Chip heranführen. Der Betrag muss deutlich steigen, über 200 µT erscheint „Kontakt“. Erfahrungswert: Rauschen etwa 1 µT, Magnet von Hand bis 1,5 mT.
 2. **Finger auf dem Tisch:** Lamelle mit Magnet in die Basis, Platine ins Fach, Nullpunkt nehmen. Mit dem Daumen bis zum Anschlag drücken. **Bestanden, wenn** sich eine Achse um mehrere hundert µT ändert und beim Loslassen auf etwa 0 zurückgeht.
 3. **Spitze gegen Basis drücken:** Eine zweite Achse soll sich dabei anders verhalten. Das ist das Signal für die Kontakthöhe.
 4. **Alle vier:** Nacheinander jede Lamelle drücken. Es darf nur der Name dieser Lamelle als Kontakt erscheinen.
