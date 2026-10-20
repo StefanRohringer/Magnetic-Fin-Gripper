@@ -20,6 +20,9 @@ The full guide is in German: **[README.de.md](README.de.md)** (wiring, soldering
 | `druck/Basis_V1.8.1_PLA.stl` | Finger base V1.8.1, PLA, print 2× |
 | `druck/Lamellen_V1.6N_TPU_2Stueck.stl` | Twin Fin-Ray lamellae V1.6-N, TPU 95A, 2 per plate, print 2× |
 | `druck/W2c_*.stl`, `druck/ANLEITUNG_W2c.md` | Variant W2c: the same lamella with a PLA fingernail for very small parts (0603/0402 SMD) |
+| `zeichnungen/Massblatt_V1.8.1.pdf` | Dimensioned drawing of the base V1.8.1 (also as PNG) |
+| `zeichnungen/Massblatt_Lamelle_V1.6N.pdf` | Dimensioned drawing of the Fin-Ray lamella V1.6-N (also as PNG) |
+| `zeichnungen/Massblatt_W2c_Fingernagel.pdf` | Drawing of the W2c fingernail and its fit on the lamellae (also as PNG) |
 | `ansicht/greifer_3d.html` | Interactive 3D view (open in a browser, needs internet for three.js): demo button, live sensor readout per lamella, gripper width, gaps, Fin-Ray or W2c, grape or SMD part |
 | `ANSCHLUSSPLAN.html`, `anschlussplan.svg` | Wiring diagram |
 | `zeichnungen/Loetbruecken_A0_A1.png` | Where to solder the address jumpers A0/A1 |

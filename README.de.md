@@ -64,6 +64,10 @@ Beim allerersten Start legen die Skripte eine eigene Python-Umgebung an. Das dau
 | `druck/W2c_Lamelle_TPU_2Stueck.stl`, `druck/W2c_Nagel_PLA_2Stueck.stl` | Variante W2c: dieselbe Lamelle mit Zapfen und PLA-Fingernagel für sehr kleine Teile |
 | `druck/ANLEITUNG_W2c.md` | Druck, Zusammenbau und Test der Variante W2c |
 | `ansicht/greifer_3d.html` | 3D-Ansicht: im Browser öffnen (braucht Internet für die 3D-Bibliothek). Vorführung, Sensoranzeige je Lamelle, Greiferweite, Spalt, Fin-Ray oder W2c, Traube oder SMD-Teil |
+| **zeichnungen/** | |
+| `zeichnungen/Massblatt_V1.8.1.pdf` | Maßblatt Basis V1.8.1: Schnitte, Lochbild, geänderte Maße (auch als PNG) |
+| `zeichnungen/Massblatt_Lamelle_V1.6N.pdf` | Maßblatt Fin-Ray-Lamelle V1.6-N: Profil, Federn, Magnettasche (auch als PNG) |
+| `zeichnungen/Massblatt_W2c_Fingernagel.pdf` | Maßblatt W2c: Nagel, Zapfen, Sitz auf den Lamellen (auch als PNG) |
 | **Anschluss und Löten** | |
 | `anschlussplan.svg` | Anschlussplan als Bild; `ANSCHLUSSPLAN.html` dasselbe mit Erklärungen, im Browser öffnen |
 | `zeichnungen/Loetbruecken_A0_A1.png` | wo die Lötbrücken A0/A1 sitzen und wie man sie schließt (die Adressen in der Tabelle im Bild sind veraltet, richtig sind die in Abschnitt 4.1) |

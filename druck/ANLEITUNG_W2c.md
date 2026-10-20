@@ -8,6 +8,7 @@ Stand 19.10.2026. Probe für sehr kleine Elektronikteile (0603, 0402). Der Finge
 |---|---|
 | `W2c_Lamelle_TPU_2Stueck.stl` | 2 TPU-Lamellen je Druck, **2 × drucken** (4 Lamellen) |
 | `W2c_Nagel_PLA_2Stueck.stl` | 2 PLA-Nägel (einer je Basis), 1 × drucken |
+| `../zeichnungen/Massblatt_W2c_Fingernagel.pdf` | Zeichnung mit Maßen und Magnetlage |
 | `ANLEITUNG_W2c.md` | diese Anleitung |
 
 ## 2. Drucken
