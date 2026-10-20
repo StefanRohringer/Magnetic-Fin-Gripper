@@ -1,3 +1,8 @@
+# Magnetic-Fin-Gripper  Copyright (C) 2026  Stefan Rohringer
+# SPDX-License-Identifier: GPL-3.0-or-later
+# This program comes with ABSOLUTELY NO WARRANTY. It is free software, and you are welcome
+# to redistribute it under the terms of the GNU GPL, version 3 or later (see LICENSE).
+
 # Wird von start.sh, monitor.sh und pico_aufspielen.sh eingebunden (nicht direkt starten).
 # Legt die virtuelle Umgebung .venv im Projektordner an und installiert pc/requirements.txt,
 # beim ersten Mal und immer dann, wenn sich requirements.txt geaendert hat.

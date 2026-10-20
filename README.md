@@ -46,4 +46,4 @@ Copyright © 2026 Stefan Rohringer
 - Hardware (STL files, drawings, build instructions): **CERN-OHL-S-2.0**, see [`LICENSE-HARDWARE`](LICENSE-HARDWARE).
 - Software (`pc/`, `pico/`): **GPL-3.0**, see [`LICENSE`](LICENSE).
 
-Both are strongly reciprocal: if you distribute a modified version, you must publish its source under the same license.
+Each source file carries a short copyright and SPDX license header. Both licenses are strongly reciprocal: if you distribute a modified version, you must publish its source under the same license.
