@@ -1,0 +1,13 @@
+# Aufgezeichnete Messdaten
+greifer_*.csv
+messungen/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Druckjobs aus dem Slicer
+*.gcode
+*.gcode.3mf

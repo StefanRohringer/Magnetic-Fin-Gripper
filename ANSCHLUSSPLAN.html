@@ -1,0 +1,248 @@
+<title>Greifer-Anschlussplan</title>
+<style>
+/* Layout: technisches Blatt, eine Spalte, Zeichnungen in voller Breite, Tabellen darunter */
+:root{
+  --bg:#f3f5f6; --sheet:#ffffff; --fg:#1b2126; --muted:#5c6770; --line:#cfd6db; --accent:#1f6fb8;
+  --w-red:#d0312d; --w-blk:#22272b; --w-blu:#1f6fd0; --w-yel:#e2b400; --pcb:#2b6cb0; --pico:#2e8b57; --hub:#6b7680; --warn:#b54708; --warnbg:#fff4e5;
+  --f-head:"IBM Plex Sans Condensed","Arial Narrow",sans-serif; --f-body:"IBM Plex Sans",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121619;--sheet:#1b2025;--fg:#e4e8eb;--muted:#9aa6af;--line:#333c43;--accent:#6aa9ec;--w-blk:#9aa3aa;--warn:#f0a35c;--warnbg:#2c2116;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121619;--sheet:#1b2025;--fg:#e4e8eb;--muted:#9aa6af;--line:#333c43;--accent:#6aa9ec;--w-blk:#9aa3aa;--warn:#f0a35c;--warnbg:#2c2116;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15.5px;line-height:1.5;padding:16px;padding-block:20px}
+main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+section{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:20px;min-width:0}
+h1{font-family:var(--f-head);font-weight:600;font-size:2rem;margin:0;text-wrap:balance}
+h2{font-family:var(--f-head);font-weight:600;font-size:1.3rem;margin:0 0 10px;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;max-width:65ch}
+p{max-width:68ch;margin:0 0 10px}
+.svgbox{overflow-x:auto}
+svg text{font-family:var(--f-body)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:500}
+td.k{font-family:var(--f-mono);font-weight:600;color:var(--accent);white-space:nowrap}
+.wire{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.wire i{display:inline-block;width:22px;height:5px;border-radius:3px}
+ol.steps{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:8px;max-width:72ch}
+.warn{background:var(--warnbg);border-left:4px solid var(--warn);padding:10px 14px;border-radius:4px;max-width:72ch}
+.warn b{color:var(--warn)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media (max-width:760px){.grid2{grid-template-columns:minmax(0,1fr)}}
+code{font-family:var(--f-mono);font-size:.9em}
+.chip{font-family:var(--f-mono);font-size:.8rem;border:1px solid var(--line);border-radius:99px;padding:1px 8px;white-space:nowrap}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<main>
+<section>
+  <h1>Greifer-Anschlussplan</h1>
+  <p class="sub">Zwillings-Fin-Ray V1.6-N mit 4 Sensoren MLX90393, Raspberry Pi Pico und Adafruit-Hub 5625. Jedes Kabel ist einzeln beschrieben, mit Länge, Farben und Steckplatz.</p>
+</section>
+
+<section>
+  <h2>Übersicht</h2>
+  <div class="svgbox">
+  <svg viewBox="0 0 945 430" width="100%" style="min-width:680px" role="img" aria-label="Übersicht: PC, USB, Pico, Adapterkabel K1, Hub, vier Kabel K2 bis K5 zu den Sensoren L1, L2, R1, R2">
+    <defs><style>
+      .box{fill:var(--sheet);stroke:var(--fg);stroke-width:1.4}
+      .t{fill:var(--fg);font-size:14px}.ts{fill:var(--muted);font-size:12px}.tb{fill:var(--fg);font-size:15px;font-weight:600}
+      .kl{fill:var(--accent);font-size:13px;font-weight:600;font-family:var(--f-mono)}
+      .cab{fill:none;stroke:var(--fg);stroke-width:3.5}
+      .zone{fill:none;stroke:var(--line);stroke-width:1.4;stroke-dasharray:6 5}
+    </style></defs>
+    <!-- Zonen -->
+    <rect class="zone" x="190" y="40" width="330" height="350" rx="10"/>
+    <text class="ts" x="200" y="62">am Handgelenk festgemacht</text>
+    <rect class="zone" x="640" y="40" width="280" height="350" rx="10"/>
+    <text class="ts" x="650" y="62">an den Greiferfingern</text>
+    <!-- PC -->
+    <rect class="box" x="20" y="180" width="110" height="70" rx="6"/>
+    <text class="tb" x="75" y="210" text-anchor="middle">PC</text>
+    <text class="ts" x="75" y="230" text-anchor="middle">freie USB-Buchse</text>
+    <!-- USB -->
+    <line x1="130" y1="215" x2="215" y2="215" style="stroke:var(--muted);stroke-width:5"/>
+    <text class="kl" x="172" y="203" text-anchor="middle">K0</text>
+    <text class="ts" x="172" y="238" text-anchor="middle">USB, am Arm</text>
+    <!-- Pico -->
+    <rect x="215" y="150" width="120" height="130" rx="6" style="fill:var(--pico);opacity:.18"/>
+    <rect class="box" x="215" y="150" width="120" height="130" rx="6" style="fill:none"/>
+    <text class="tb" x="275" y="176" text-anchor="middle">Pico</text>
+    <text class="ts" x="225" y="200">36 3V3</text><text class="ts" x="225" y="220">38 GND</text>
+    <text class="ts" x="225" y="240">6 GP4 SDA</text><text class="ts" x="225" y="260">7 GP5 SCL</text>
+    <!-- K1 vier Adern -->
+    <path d="M335 196 C365 196 375 205 405 205" style="fill:none;stroke:var(--w-red);stroke-width:3"/>
+    <path d="M335 216 C365 216 375 211 405 211" style="fill:none;stroke:var(--w-blk);stroke-width:3"/>
+    <path d="M335 236 C365 236 375 217 405 217" style="fill:none;stroke:var(--w-blu);stroke-width:3"/>
+    <path d="M335 256 C365 256 375 223 405 223" style="fill:none;stroke:var(--w-yel);stroke-width:3"/>
+    <text class="kl" x="372" y="185" text-anchor="middle">K1</text>
+    <!-- Hub -->
+    <rect x="405" y="160" width="100" height="110" rx="6" style="fill:var(--hub);opacity:.18"/>
+    <rect class="box" x="405" y="160" width="100" height="110" rx="6" style="fill:none"/>
+    <text class="tb" x="455" y="210" text-anchor="middle">Hub</text>
+    <text class="ts" x="455" y="230" text-anchor="middle">5 Buchsen</text>
+    <!-- K2..K5 -->
+    <path class="cab" d="M505 175 C580 175 590 105 665 105"/>
+    <path class="cab" d="M505 200 C580 200 590 185 665 185"/>
+    <path class="cab" d="M505 230 C580 230 590 265 665 265"/>
+    <path class="cab" d="M505 255 C580 255 590 345 665 345"/>
+    <text class="kl" x="585" y="128">K2</text><text class="kl" x="585" y="184">K3</text>
+    <text class="kl" x="585" y="262">K4</text><text class="kl" x="585" y="322">K5</text>
+    <!-- Sensoren -->
+    <g>
+      <rect x="665" y="80" width="262" height="50" rx="5" style="fill:var(--pcb);opacity:.16"/><rect class="box" x="665" y="80" width="262" height="50" rx="5" style="fill:none"/>
+      <text class="tb" x="680" y="102">L1 · 0x18</text><text class="ts" x="680" y="120">linker Finger, Lamelle 1 · keine Brücke</text>
+      <rect x="665" y="160" width="262" height="50" rx="5" style="fill:var(--pcb);opacity:.16"/><rect class="box" x="665" y="160" width="262" height="50" rx="5" style="fill:none"/>
+      <text class="tb" x="680" y="182">L2 · 0x19</text><text class="ts" x="680" y="200">linker Finger, Lamelle 2 · Brücke A0</text>
+      <rect x="665" y="240" width="262" height="50" rx="5" style="fill:var(--pcb);opacity:.16"/><rect class="box" x="665" y="240" width="262" height="50" rx="5" style="fill:none"/>
+      <text class="tb" x="680" y="262">R1 · 0x1A</text><text class="ts" x="680" y="280">rechter Finger, Lamelle 1 · Brücke A1</text>
+      <rect x="665" y="320" width="262" height="50" rx="5" style="fill:var(--pcb);opacity:.16"/><rect class="box" x="665" y="320" width="262" height="50" rx="5" style="fill:none"/>
+      <text class="tb" x="680" y="342">R2 · 0x1B</text><text class="ts" x="680" y="360">rechter Finger, Lamelle 2 · Brücken A0 + A1</text>
+    </g>
+    <text class="ts" x="20" y="415">Alle vier Sensoren hängen am selben Bus. Der Pico ruft jeden über seine Adresse einzeln ab. Der Hub verbindet die Kabel nur, er schaltet nichts.</text>
+  </svg>
+  </div>
+</section>
+
+<section>
+  <h2>Kabelliste</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Nr.</th><th>Kabel aus deinem Set</th><th>Länge</th><th>Von</th><th>Nach</th></tr></thead>
+    <tbody>
+      <tr><td class="k">K0</td><td>USB-Kabel Micro-USB, lag beim Pico dabei. Muss ein Datenkabel sein, kein reines Ladekabel.</td><td>so lang wie nötig</td><td>PC, eigene Buchse, nicht am Hub des Arms</td><td>Micro-USB-Buchse am Pico</td></tr>
+      <tr><td class="k">K1</td><td>Adapterkabel: kleiner SH-Stecker auf 4 Einzelbuchsen (weiblich)</td><td>15 cm</td><td>Hub, beliebige Buchse</td><td>4 Stifte am Pico, siehe nächster Abschnitt</td></tr>
+      <tr><td class="k">K2</td><td>SH-Stecker auf beiden Seiten</td><td>20 cm</td><td>Hub</td><td>L1, oberer Stecker</td></tr>
+      <tr><td class="k">K3</td><td>SH-Stecker auf beiden Seiten</td><td>20 cm</td><td>Hub</td><td>L2, oberer Stecker</td></tr>
+      <tr><td class="k">K4</td><td>SH-Stecker auf beiden Seiten</td><td>20 cm</td><td>Hub</td><td>R1, oberer Stecker</td></tr>
+      <tr><td class="k">K5</td><td>SH-Stecker auf beiden Seiten</td><td>30 cm</td><td>Hub</td><td>R2, oberer Stecker</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin-top:12px">Übrig bleiben als Ersatz: 3 × 10 cm und 1 × 50 cm mit Steckern auf beiden Seiten, dazu 1 Adapter mit weiblichen und 2 mit männlichen Kontakten. Für den ersten Test auf dem Tisch nimmst du für K2 bis K5 die kurzen 10-cm-Kabel.</p>
+  <p>Welches Kabel zu welchem Sensor geht, ist für die Software egal, weil sie die Sensoren an der Adresse erkennt. Beschrifte trotzdem beide Enden mit einem Stück Klebeband, das hilft bei der Fehlersuche.</p>
+</section>
+
+<section class="grid2">
+  <div style="min-width:0">
+    <h2>K1 am Pico</h2>
+    <p>Halte den Pico so, dass die USB-Buchse nach oben zeigt und die Bauteile zu dir. Links laufen die Pins von oben nach unten 1 bis 20, rechts von unten nach oben 21 bis 40.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Ader</th><th>Pin</th><th>Name</th><th>Lage</th></tr></thead>
+      <tbody>
+        <tr><td><span class="wire"><i style="background:var(--w-red)"></i>rot</span></td><td>36</td><td>3V3 OUT</td><td>rechts, 5. von oben</td></tr>
+        <tr><td><span class="wire"><i style="background:var(--w-blk)"></i>schwarz</span></td><td>38</td><td>GND</td><td>rechts, 3. von oben</td></tr>
+        <tr><td><span class="wire"><i style="background:var(--w-blu)"></i>blau</span></td><td>6</td><td>GP4 (SDA)</td><td>links, 6. von oben</td></tr>
+        <tr><td><span class="wire"><i style="background:var(--w-yel)"></i>gelb</span></td><td>7</td><td>GP5 (SCL)</td><td>links, 7. von oben</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="svgbox" style="min-width:0">
+    <svg viewBox="0 0 300 470" width="100%" style="max-width:300px" role="img" aria-label="Pico von oben mit den vier belegten Pins">
+      <rect x="90" y="20" width="120" height="430" rx="8" style="fill:var(--pico);opacity:.2;stroke:var(--fg);stroke-width:1.2"/>
+      <rect x="128" y="8" width="44" height="22" rx="3" style="fill:var(--sheet);stroke:var(--fg);stroke-width:1.2"/>
+      <text x="150" y="48" text-anchor="middle" style="fill:var(--muted);font-size:11px">USB</text>
+      <g id="pins"></g>
+      <text x="150" y="240" text-anchor="middle" style="fill:var(--muted);font-size:12px">Pico</text>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h2>Stecker und Adern</h2>
+  <p>Alle kleinen Stecker sind <b>JST SH, 1 mm, 4-polig</b> (bei Adafruit „STEMMA QT“, bei SparkFun „Qwiic“). Sie passen nur in einer Richtung hinein. Wenn es klemmt, drehst du den Stecker um, nie mit Kraft drücken. Die Adern sind in jedem Kabel gleich belegt:</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Ader</th><th>Bedeutung</th><th>Wozu</th></tr></thead>
+    <tbody>
+      <tr><td><span class="wire"><i style="background:var(--w-blk)"></i>schwarz</span></td><td>GND, Masse</td><td>gemeinsamer Bezug für alle Teile</td></tr>
+      <tr><td><span class="wire"><i style="background:var(--w-red)"></i>rot</span></td><td>3,3 V Versorgung</td><td>Strom für die Sensoren, zusammen gut 10 mA</td></tr>
+      <tr><td><span class="wire"><i style="background:var(--w-blu)"></i>blau</span></td><td>SDA, Daten</td><td>die Messwerte</td></tr>
+      <tr><td><span class="wire"><i style="background:var(--w-yel)"></i>gelb</span></td><td>SCL, Takt</td><td>gibt den Takt für die Daten vor</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="grid2">
+  <div style="min-width:0">
+    <h2>Lötbrücken für die Adressen</h2>
+    <p>Jede Platine hat zwei kleine Lötfelder, beschriftet mit <b>A0</b> und <b>A1</b>. Eine Brücke heißt: einen Tropfen Lötzinn so setzen, dass die beiden Hälften des Felds verbunden sind.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Platine</th><th>A0</th><th>A1</th><th>Adresse</th></tr></thead>
+      <tbody>
+        <tr><td>L1</td><td>offen</td><td>offen</td><td><span class="chip">0x18</span></td></tr>
+        <tr><td>L2</td><td>zu</td><td>offen</td><td><span class="chip">0x19</span></td></tr>
+        <tr><td>R1</td><td>offen</td><td>zu</td><td><span class="chip">0x1A</span></td></tr>
+        <tr><td>R2</td><td>zu</td><td>zu</td><td><span class="chip">0x1B</span></td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:10px">Schreib danach den Namen mit Edding auf die Platine.</p>
+  </div>
+  <div class="svgbox" style="min-width:0">
+    <svg viewBox="0 0 320 250" width="100%" style="max-width:320px" role="img" aria-label="Lötfeld offen und geschlossen">
+      <text x="80" y="30" text-anchor="middle" style="fill:var(--fg);font-size:14px;font-weight:600">offen</text>
+      <text x="240" y="30" text-anchor="middle" style="fill:var(--fg);font-size:14px;font-weight:600">zu (Brücke)</text>
+      <rect x="40" y="60" width="34" height="60" rx="4" style="fill:#c9a227"/><rect x="86" y="60" width="34" height="60" rx="4" style="fill:#c9a227"/>
+      <rect x="200" y="60" width="34" height="60" rx="4" style="fill:#c9a227"/><rect x="246" y="60" width="34" height="60" rx="4" style="fill:#c9a227"/>
+      <ellipse cx="240" cy="90" rx="34" ry="20" style="fill:#b8bcc2;stroke:#7d8288;stroke-width:1"/>
+      <text x="80" y="150" text-anchor="middle" style="fill:var(--muted);font-size:12px">Spalt sichtbar</text>
+      <text x="240" y="150" text-anchor="middle" style="fill:var(--muted);font-size:12px">Zinn verbindet beide Hälften</text>
+      <text x="160" y="200" text-anchor="middle" style="fill:var(--fg);font-size:13px">Lötkolben etwa 330 °C, kurz halten.</text>
+      <text x="160" y="222" text-anchor="middle" style="fill:var(--fg);font-size:13px">Eine Brücke falsch? Mit Entlötlitze öffnen.</text>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h2>Kabelführung am Arm</h2>
+  <ol class="steps">
+    <li>Pico und Hub nebeneinander am Greifergehäuse oder am Handgelenk festmachen, mit Klebepad oder Kabelbinder. Beide müssen fest sitzen und dürfen sich nicht mitdrehen.</li>
+    <li>K2 bis K5 vom Hub zu den Fingern führen. An jedem Finger eine Schlaufe von 3 bis 4 cm lassen, weil sich die Backen beim Greifen bewegen. Das Kabel darf bei ganz offenem Greifer nicht straff sein.</li>
+    <li>Am Finger das Kabel außen an der Basis entlang führen und mit Kapton-Band oder einem kleinen Kabelbinder sichern, damit der Stecker nicht herausgezogen wird.</li>
+    <li>K0 (USB) am Arm entlang zum PC führen, etwa alle 10 cm mit einem Kabelbinder. An jedem Gelenk eine lockere Schlaufe lassen, damit das Kabel bei keiner Armstellung zieht.</li>
+    <li>Prüfen: Arm langsam von Hand in die äußersten Stellungen bewegen. Kein Kabel darf sich spannen oder irgendwo einklemmen.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Reihenfolge beim Anschließen</h2>
+  <ol class="steps">
+    <li>USB abgezogen lassen. Nie unter Strom stecken.</li>
+    <li>Lötbrücken setzen und Platinen beschriften.</li>
+    <li>K1 an den Pico: rot an Pin 36, schwarz an Pin 38, blau an Pin 6, gelb an Pin 7. Zweimal nachzählen.</li>
+    <li>K1 in eine Hub-Buchse, dann K2 bis K5 in die übrigen vier Buchsen.</li>
+    <li>K2 bis K5 in den oberen Stecker der Platinen stecken und die Platinen von oben ins Fach schieben.</li>
+    <li>K0 einstecken. In Thonny muss erscheinen: <code># OK: L1 (0x18)</code> bis <code># OK: R2 (0x1B)</code>.</li>
+  </ol>
+  <div class="warn" style="margin-top:14px"><b>Achtung:</b> Rot gehört an Pin 36 (3V3 OUT), nicht an Pin 40 (VBUS, 5 V) und nicht an Pin 39. Wird der Pico warm oder riecht es, sofort USB abziehen. Dann sind meist Rot und Schwarz vertauscht.</div>
+</section>
+
+<section>
+  <h2>Wenn etwas nicht geht</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Meldung in Thonny</th><th>Ursache</th><th>Was tun</th></tr></thead>
+    <tbody>
+      <tr><td><code>I2C gefunden: nichts</code></td><td>K1 falsch gesteckt, meist Blau und Gelb vertauscht</td><td>USB ab, Blau an Pin 6 und Gelb an Pin 7 prüfen</td></tr>
+      <tr><td><code>FEHLT: R2 (Loetbruecke A0+A1)</code></td><td>ein Kabel sitzt nicht, oder die Lötbrücke stimmt nicht</td><td>Stecker an Hub und Platine prüfen; das Kabel mit einem Ersatzkabel tauschen</td></tr>
+      <tr><td>zwei Sensoren melden dieselbe Adresse, einer fehlt</td><td>zwei Platinen mit gleicher Brücke</td><td>Lötbrücken mit der Tabelle oben vergleichen</td></tr>
+      <tr><td><code>liefert nicht</code> während des Betriebs</td><td>Wackelkontakt, oft beim Bewegen der Backe</td><td>Schlaufe vergrößern, Stecker mit Band sichern</td></tr>
+      <tr><td><code>!SAETTIGUNG</code></td><td>Magnet zu nah am Chip</td><td>tritt im Finger nicht auf; beim Tischtest den Magneten weiter weg halten</td></tr>
+    </tbody>
+  </table></div>
+</section>
+</main>
+<script>
+(function(){
+  const g=document.getElementById('pins'); const ns='http://www.w3.org/2000/svg';
+  const mark={36:['--w-red','36 · 3V3'],38:['--w-blk','38 · GND'],6:['--w-blu','6 · GP4 SDA'],7:['--w-yel','7 · GP5 SCL']};
+  for(let i=1;i<=40;i++){
+    const left=i<=20, row=left?i-1:40-i;
+    const x=left?100:200, y=62+row*19.5;
+    const c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',mark[i]?6.5:4);
+    c.setAttribute('style',mark[i]?'fill:var('+mark[i][0]+');stroke:var(--fg);stroke-width:1':'fill:var(--sheet);stroke:var(--muted);stroke-width:1');
+    g.appendChild(c);
+    if(mark[i]){
+      const t=document.createElementNS(ns,'text');
+      t.setAttribute('x',left?x-12:x+12); t.setAttribute('y',y+4); t.setAttribute('text-anchor',left?'end':'start');
+      t.setAttribute('style','fill:var(--fg);font-size:12px;font-weight:600'); t.textContent=mark[i][1]; g.appendChild(t);
+    }
+  }
+})();
+</script>

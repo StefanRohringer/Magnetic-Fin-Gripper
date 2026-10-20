@@ -1,0 +1,7 @@
+Magnetic-Fin-Gripper
+Copyright © 2026 Stefan Rohringer
+
+Hardware (druck/, zeichnungen/, ansicht/, ANSCHLUSSPLAN.html, anschlussplan.svg, build instructions):
+  licensed under CERN-OHL-S-2.0, see LICENSE-HARDWARE.
+Software (pc/, pico/):
+  licensed under GPL-3.0, see LICENSE.
